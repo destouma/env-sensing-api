@@ -1,3 +1,3 @@
-# Envirenmental Sensing API
+# Environmental Sensing  API
 
 Basic Ruby On Rails API to store sensor readings
