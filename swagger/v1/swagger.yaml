@@ -1,0 +1,20 @@
+---
+openapi: 3.0.1
+info:
+  title: Environmental Sensing API
+  version: v1
+paths:
+  "/api/v1/devices":
+    get:
+      summary: Retrives all devices
+      tags:
+      - Devices
+      responses:
+        '200':
+          description: devices  found
+          content: {}
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
