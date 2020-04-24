@@ -49,13 +49,18 @@
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.9.0, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, rbenv: 2.6.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="haml (v5.1.2, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.8.2, rbenv: 2.6.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v4.3.5, rbenv: 2.6.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jquery-ui-rails (v6.0.1, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.7.1, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.0.2, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.4.0, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.14.0, rbenv: 2.6.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nested_form (v0.3.2, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.5.2, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v0.21.0, rbenv: 2.6.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-pjax (v1.1.0, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v1.1.0, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v5.1.7, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.0.3, rbenv: 2.6.5) [gem]" level="application" />
@@ -70,6 +75,7 @@
     <orderEntry type="library" scope="PROVIDED" name="spring-watcher-listen (v2.0.1, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v3.7.2, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.2.1, rbenv: 2.6.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="temple (v0.8.2, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.0.1, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.10, rbenv: 2.6.5) [gem]" level="application" />
