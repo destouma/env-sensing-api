@@ -1,15 +1,15 @@
-# spec/integration/devices_spec.rb
+# spec/integration/sensors_spec.rb
 require 'swagger_helper'
 
-describe 'Devices API' do
+describe 'Sensors API' do
 
-  path '/api/v1/devices' do
-    get 'Retrives all devices' do
-      tags 'Devices'
+  path '/api/v1/sensors' do
+    get 'Retrives all sensors' do
+      tags 'Sensors'
       produces 'application/json', 'application/xml'
       # parameter name: :id, :in => :path, :type => :string
 
-      response '200', 'devices  found' do
+      response '200', 'sensors  found' do
         run_test!
       end
     end

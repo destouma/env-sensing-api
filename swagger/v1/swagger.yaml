@@ -13,6 +13,55 @@ paths:
         '200':
           description: devices  found
           content: {}
+  "/api/v1/sensor_readings":
+    get:
+      summary: Retrives all sensor_readings
+      tags:
+      - Sensor readings
+      responses:
+        '200':
+          description: sensor readings  found
+          content: {}
+    post:
+      summary: Creates a sensor reading
+      tags:
+      - Sensor readings
+      parameters:
+      - schema:
+          type: object
+          properties:
+            sensor_uuid:
+              type: string
+            sensor_value:
+              type: string
+          required:
+          - sensor_uuid
+          - sensor_value
+      responses:
+        '201':
+          description: sensor reading created
+          content: {}
+        '422':
+          description: Internal Server Error
+          content: {}
+  "/api/v1/sensor_types":
+    get:
+      summary: Retrives all sensor types
+      tags:
+      - Sensor types
+      responses:
+        '200':
+          description: sensor types  found
+          content: {}
+  "/api/v1/sensors":
+    get:
+      summary: Retrives all sensors
+      tags:
+      - Sensors
+      responses:
+        '200':
+          description: sensors  found
+          content: {}
 servers:
 - url: http://{defaultHost}
   variables:
