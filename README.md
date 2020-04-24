@@ -2,7 +2,9 @@
 
 Basic Ruby On Rails API to store sensor readings
 
-using the folowing gems
+Database: posgresql
+
+Using the folowing gems
 - annotate
 - rswag
 - rails_admin
