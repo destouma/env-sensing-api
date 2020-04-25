@@ -25,6 +25,12 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :device_readings do
+        collection do
+          post :create
+        end
+      end
+
       resources :sensor_types do
         collection do
           get :index
