@@ -1,54 +1,28 @@
+# see example in
+#https://editor.swagger.io/
 ---
 openapi: 3.0.1
 info:
   title: Environmental Sensing API
   version: v1
+tags:
+  - name: "sensor_reading"
+    description: ""
 paths:
   "/api/v1/devices":
     get:
       summary: Retrives all devices
       tags:
-      - Devices
+      - "Devices"
       responses:
         '200':
           description: devices  found
-          content: {}
-  "/api/v1/sensor_readings":
-    get:
-      summary: Retrives all sensor_readings
-      tags:
-      - Sensor readings
-      responses:
-        '200':
-          description: sensor readings  found
-          content: {}
-    post:
-      summary: Creates a sensor reading
-      tags:
-      - Sensor readings
-      parameters:
-      - schema:
-          type: object
-          properties:
-            sensor_uuid:
-              type: string
-            sensor_value:
-              type: string
-          required:
-          - sensor_uuid
-          - sensor_value
-      responses:
-        '201':
-          description: sensor reading created
-          content: {}
-        '422':
-          description: Internal Server Error
           content: {}
   "/api/v1/sensor_types":
     get:
       summary: Retrives all sensor types
       tags:
-      - Sensor types
+        - "Sensor types"
       responses:
         '200':
           description: sensor types  found
@@ -57,11 +31,88 @@ paths:
     get:
       summary: Retrives all sensors
       tags:
-      - Sensors
+        - "Sensors"
       responses:
         '200':
           description: sensors  found
           content: {}
+  "/api/v1/sensor_readings":
+    get:
+      tags:
+      - "Sensor readings"
+      summary: "Retrives all sensor_readings"
+      description: ""
+      operationId: "getAllSensorReadings"
+      responses:
+        '200':
+          description: sensor readings  found
+          content: {}
+    post:
+      tags:
+        - "Sensor readings"
+      summary: "Add a new reading in the database"
+      description: ""
+      operationId: "addSensorReading"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Reading that need to be inserted in the database"
+          required: true
+          schema:
+            $ref: "#/definitions/sensor_reading"
+      responses:
+        "405":
+          description: "Invalid input"
+  "/api/v1/device_readings":
+    post:
+      tags:
+        - "Device readings"
+      summary: "Add a new readings in the database"
+      description: ""
+      operationId: "addDeviceReadings"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Reading that need to be inserted in the database"
+          required: true
+          schema:
+            $ref: "#/definitions/device_reading"
+      responses:
+        "405":
+          description: "Invalid input"
+definitions:
+  sensor_reading:
+    type: "object"
+    required:
+      - "sensor_uuid"
+      - "sensor_value"
+    properties:
+      sensor_uuid:
+        type: "string"
+        example: "123-123-123-123"
+      sensor_value:
+        type: "integer"
+        format: "int64"
+  device_reading:
+    type: "object"
+    required:
+      - "device_uuid"
+      - "sensor_readings"
+    properties:
+      device_uuid:
+        type: "string"
+        example: "123-123-123-123"
+      sensor_readings:
+        type: "string"
+        example: "123-123-123-123"
 servers:
 - url: http://{defaultHost}
   variables:
