@@ -5,9 +5,6 @@ openapi: 3.0.1
 info:
   title: Environmental Sensing API
   version: v1
-tags:
-  - name: "sensor_reading"
-    description: ""
 paths:
   "/api/v1/devices":
     get:
