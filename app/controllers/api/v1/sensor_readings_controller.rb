@@ -9,6 +9,7 @@ class Api::V1::SensorReadingsController < ApplicationController
   # POST /api/v1/sensor_readings
   # POST /api/v1/sensor_readings.json
   def create
+      puts "sensor uuid" + params[:sensor_uuid]
       sensor = Sensor.where(uuid: params[:sensor_uuid]).first
       @sensor_reading = SensorReading.new()
       @sensor_reading.sensorvalue  = params[:sensor_value]
