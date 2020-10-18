@@ -501,6 +501,9 @@ servers:
     variables:
       defaultHost:
         default: 'localhost:3000'
+    description: dev
+  - url: 'http://192.168.1.238'
+    description: integration
 components:
   securitySchemes: {}
   schemas: {}
