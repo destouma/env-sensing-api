@@ -1,85 +1,506 @@
-# see example in
-#https://editor.swagger.io/
----
 openapi: 3.0.1
 info:
   title: Environmental Sensing API
   version: v1
+  description: Simple API so manage sensors
+  contact:
+    name: API support
+    email: mdsoftengr@gmail.com
+tags:
+  - name: Devices
+    description: All about the devices
+  - name: Sensor types
+    description: All about the sensor types
+  - name: Sensors
+    description: All about the sensors
+  - name: Sensor readings
+    description: All about the sensor readings
 paths:
-  "/api/v1/devices":
+  /api/v1/devices:
     get:
-      summary: Retrives all devices
+      summary: Get all devices
       tags:
-      - "Devices"
+        - Devices
       responses:
         '200':
           description: devices  found
-          content: {}
-  "/api/v1/sensor_types":
-    get:
-      summary: Retrives all sensor types
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  devices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        '':
+                          type: integer
+                        uuid:
+                          type: string
+                        name:
+                          type: string
+                        description:
+                          type: string
+                        sensors:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              uuid:
+                                type: string
+                              name:
+                                type: string
+                              description:
+                                type: string
+                              sensor_type:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                  name:
+                                    type: string
+                                  unit:
+                                    type: string
+                                  pow10multi:
+                                    type: integer
+              examples:
+                example-1:
+                  value:
+                    devices:
+                      - id: 1
+                        uuid: 123-123-000-000
+                        name: Test Device
+                        description: 'Test Device '
+                        sensors:
+                          - id: 1
+                            uuid: 123-123-000-001
+                            name: Temperature Sensor
+                            description: Temperature Sensor
+                            sensor_type:
+                              id: 1
+                              name: Temperature
+                              unit: C
+                              pow10multi: -2
+                          - id: 2
+                            uuid: 123-123-000-002
+                            name: Pressure Sensor
+                            description: Pressure Sensor
+                            sensor_type:
+                              id: 2
+                              name: Pressure
+                              unit: Pa
+                              pow10multi: -2
+                          - id: 3
+                            uuid: 123-123-000-003
+                            name: Battery Level Sensor
+                            description: Battery Level Sensor
+                            sensor_type:
+                              id: 3
+                              name: Battery Level
+                              unit: '%'
+                              pow10multi: 0
+                      - id: 2
+                        uuid: 123-123-000-002
+                        name: test
+                        description: test creation
+                        sensors: []
+                      - id: 7
+                        uuid: 123-123-000-004
+                        name: test
+                        description: test creation
+                        sensors: []
+      description: Get all devices
+      operationId: get-api-v1-devices
+    post:
+      summary: Create a device
       tags:
-        - "Sensor types"
+        - Devices
+      operationId: post-api-v1-devices
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  uuid:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    id: 8
+                    uuid: 123-123-000-005
+                    name: test
+                    description: test creation
+                    created_at: '2020-10-18T11:56:10.652Z'
+                    updated_at: '2020-10-18T11:56:10.652Z'
+        '400':
+          description: Error see message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    message: 'Error: duplicate device uuid'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uuid:
+                  type: string
+                name:
+                  type: string
+                description:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  uuid: 123-123-000-004
+                  name: test
+                  description: test creation
+        description: ''
+      description: Create a new device
+  /api/v1/sensor_types:
+    get:
+      summary: Get all sensor types
+      tags:
+        - Sensor types
       responses:
         '200':
           description: sensor types  found
-          content: {}
-  "/api/v1/sensors":
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sensor_typr:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        unit:
+                          type: string
+                        pow10multi:
+                          type: integer
+              examples:
+                example-1:
+                  value:
+                    sensor_types:
+                      - id: 1
+                        name: Temperature
+                        unit: C
+                        pow10multi: -2
+                      - id: 2
+                        name: Pressure
+                        unit: Pa
+                        pow10multi: -2
+                      - id: 3
+                        name: Battery Level
+                        unit: '%'
+                        pow10multi: 0
+      description: Get all sensor types
+      operationId: get-api-v1-sensor-types
+  /api/v1/sensors:
     get:
-      summary: Retrives all sensors
+      summary: Get all sensors
       tags:
-        - "Sensors"
+        - Sensors
       responses:
         '200':
           description: sensors  found
-          content: {}
-  "/api/v1/sensor_readings":
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sensors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        uuid:
+                          type: string
+                        name:
+                          type: string
+                        description:
+                          type: string
+                        sensor_type:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            unit:
+                              type: string
+                            pow10multi:
+                              type: integer
+              examples:
+                example-1:
+                  value:
+                    sensors:
+                      - id: 1
+                        uuid: 123-123-000-001
+                        name: Temperature Sensor
+                        description: Temperature Sensor
+                        sensor_type:
+                          id: 1
+                          name: Temperature
+                          unit: C
+                          pow10multi: -2
+                      - id: 2
+                        uuid: 123-123-000-002
+                        name: Pressure Sensor
+                        description: Pressure Sensor
+                        sensor_type:
+                          id: 2
+                          name: Pressure
+                          unit: Pa
+                          pow10multi: -2
+                      - id: 3
+                        uuid: 123-123-000-003
+                        name: Battery Level Sensor
+                        description: Battery Level Sensor
+                        sensor_type:
+                          id: 3
+                          name: Battery Level
+                          unit: '%'
+                          pow10multi: 0
+      operationId: get-api-v1-sensors
+      description: Get all sensors
+    post:
+      summary: Create a sensor
+      tags:
+        - Sensors
+      operationId: post-api-v1-sensors
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  uuid:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                  device_id:
+                    type: integer
+                  sensor_type_id:
+                    type: integer
+              examples:
+                example-1:
+                  value:
+                    id: 4
+                    uuid: 123-123-000-008
+                    name: test
+                    description: test creation
+                    created_at: '2020-10-18T12:09:16.050Z'
+                    updated_at: '2020-10-18T12:09:16.050Z'
+                    device_id: 1
+                    sensor_type_id: 1
+        '400':
+          description: Error see message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    message: 'Error: duplicate sensor uuid'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                device_id:
+                  type: integer
+                sensort_type_id:
+                  type: integer
+                uuid:
+                  type: string
+                name:
+                  type: string
+                description:
+                  type: string
+            examples:
+              example-1:
+                value:
+                  device_id: 1
+                  sensor_type_id: 1
+                  uuid: 123-123-000-008
+                  name: test
+                  description: test creation
+      description: Create a new sensor for an existing device
+  /api/v1/sensor_readings:
     get:
       tags:
-      - "Sensor readings"
-      summary: "Retrives all sensor_readings"
-      description: ""
-      operationId: "getAllSensorReadings"
+        - Sensor readings
+      summary: Get all sensor readings
+      description: Get sensor readings
+      operationId: get-api-v1-sensor-readings
       responses:
         '200':
           description: sensor readings  found
-          content: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sensor_readings:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        sensor:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            uuid:
+                              type: string
+                            name:
+                              type: string
+                            sensor_type:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                name:
+                                  type: string
+                                unit:
+                                  type: string
+                                pow10multi:
+                                  type: integer
+                        sensor_value:
+                          type: integer
+        '400':
+          description: Error see message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                example-1:
+                  value: {}
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: sensor_uuid
     post:
       tags:
-        - "Sensor readings"
-      summary: "Add a new reading in the database"
-      description: ""
-      operationId: "addSensorReading"
-      consumes:
-        - "application/json"
-      produces:
-        - "application/json"
-      parameters:
-        - in: "body"
-          name: "body"
-          description: "Reading that need to be inserted in the database"
-          required: true
-          schema:
-            $ref: "#/definitions/sensor_reading"
+        - Sensor readings
+      summary: Add a new reading for a sensor
+      description: And sensor reading in back end database
+      operationId: post-api-v1-sensor-readings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sensor_uuid:
+                  type: string
+                sensor_value:
+                  type: integer
+            examples:
+              example-1:
+                value:
+                  sensor_uuid: 123-123-000-012
+                  sensor_value: 102300
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ''
       responses:
-        "405":
-          description: "Invalid input"
-definitions:
-  sensor_reading:
-    type: "object"
-    required:
-      - "sensor_uuid"
-      - "sensor_value"
-    properties:
-      sensor_uuid:
-        type: "string"
-        example: "123-123-123-123"
-      sensor_value:
-        type: "integer"
-        format: "int64"
-
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  sensor_value:
+                    type: integer
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                  sensor_id:
+                    type: integer
+              examples:
+                example-1:
+                  value:
+                    id: 133
+                    sensorvalue: 102300
+                    created_at: '2020-10-18T11:48:57.924Z'
+                    updated_at: '2020-10-18T11:48:57.924Z'
+                    sensor_id: 2
+        '400':
+          description: Impossible to create
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                example-1:
+                  value: {}
 servers:
-- url: http://{defaultHost}
-  variables:
-    defaultHost:
-      default: localhost:3000
+  - url: 'http://localhost:3000'
+    variables:
+      defaultHost:
+        default: 'localhost:3000'
+components:
+  securitySchemes: {}
+  schemas: {}

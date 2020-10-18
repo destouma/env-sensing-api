@@ -9,6 +9,10 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_devices_on_uuid  (uuid) UNIQUE
+#
 class Device < ApplicationRecord
   has_many :sensors
 end

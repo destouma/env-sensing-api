@@ -9,6 +9,10 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_devices_on_uuid  (uuid) UNIQUE
+#
 require 'test_helper'
 
 class DeviceTest < ActiveSupport::TestCase

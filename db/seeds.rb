@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+SensorReading.delete_all
+Sensor.delete_all
+Device.delete_all
+
 type_temp = SensorType.create(:name => 'Temperature', :unit => 'C', :pow10multi => -2)
 type_pres = SensorType.create(:name => 'Pressure', :unit => 'Pa', :pow10multi => -2)
 type_batt = SensorType.create(:name => 'Battery Level', :unit => '%', :pow10multi => 0)

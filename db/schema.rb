@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200423201024) do
+ActiveRecord::Schema.define(version: 2020_10_17_152751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20200423201024) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["uuid"], name: "index_devices_on_uuid", unique: true
   end
 
   create_table "sensor_readings", force: :cascade do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20200423201024) do
     t.bigint "sensor_type_id"
     t.index ["device_id"], name: "index_sensors_on_device_id"
     t.index ["sensor_type_id"], name: "index_sensors_on_sensor_type_id"
+    t.index ["uuid"], name: "index_sensors_on_uuid", unique: true
   end
 
   add_foreign_key "sensor_readings", "sensors"

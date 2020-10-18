@@ -15,6 +15,7 @@
 #
 #  index_sensors_on_device_id       (device_id)
 #  index_sensors_on_sensor_type_id  (sensor_type_id)
+#  index_sensors_on_uuid            (uuid) UNIQUE
 #
 # Foreign Keys
 #
