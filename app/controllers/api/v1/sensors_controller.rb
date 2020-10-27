@@ -3,7 +3,16 @@ class Api::V1::SensorsController < ApplicationController
   # GET /api/v1/sensors
   # GET /api/v1/sensors.json
   def index
-    @sensors = Sensor.all
+    if params[:device_uuid]
+      device = Device.where(uuid: params[:device_uuid]).first
+      if device
+        @sensors = Sensor.where(device_id: device.id)
+      else
+        render json: { message: "Error: device not found" }, status: :bad_request
+      end
+    else
+      @sensors = Sensor.all
+    end
   end
 
   def create
