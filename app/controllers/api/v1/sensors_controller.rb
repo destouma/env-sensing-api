@@ -11,7 +11,8 @@ class Api::V1::SensorsController < ApplicationController
         render json: { message: "Error: device not found" }, status: :bad_request
       end
     else
-      @sensors = Sensor.all
+      # @sensors = Sensor.all
+      render json: { message: "Error: no device" }, status: :bad_request
     end
   end
 

@@ -12,7 +12,9 @@ class Api::V1::SensorReadingsController < ApplicationController
         render json: { message: "Error: sensor not found" }, status: :bad_request
       end
     else
-      @sensor_readings = SensorReading.all
+      # @sensor_readings = SensorReading.all
+      render json: { message: "Error: no sensor" }, status: :bad_request
+
     end
   end
 
