@@ -31,6 +31,13 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :date_time do
+        collection do
+          get :current_date_time
+        end
+      end
+
+
     end
   end
 end

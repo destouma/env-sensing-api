@@ -3,6 +3,7 @@
 # Table name: sensor_readings
 #
 #  id          :bigint           not null, primary key
+#  date_time   :datetime
 #  sensorvalue :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

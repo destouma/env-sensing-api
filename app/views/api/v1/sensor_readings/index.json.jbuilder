@@ -11,4 +11,5 @@ json.sensor_readings @sensor_readings do |sensor_reading|
     end
   end
   json.sensor_value sensor_reading.sensorvalue
+  json.date_time sensor_reading.date_time
 end
