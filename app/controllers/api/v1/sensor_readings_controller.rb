@@ -14,7 +14,6 @@ class Api::V1::SensorReadingsController < ApplicationController
     else
       # @sensor_readings = SensorReading.all
       render json: { message: "Error: no sensor" }, status: :bad_request
-
     end
   end
 
@@ -26,6 +25,11 @@ class Api::V1::SensorReadingsController < ApplicationController
       @sensor_reading = SensorReading.new()
       @sensor_reading.sensorvalue  = params[:sensor_value]
       @sensor_reading.sensor_id = sensor.id
+      if params[:sensor_date_time]
+        @sensor_reading.date_time=params[:sensor_date_time]
+      else
+        @sensor_reading.date_time=DateTime.now
+      end
       if @sensor_reading.save!
         render json: @sensor_reading, status: :ok
       else
