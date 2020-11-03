@@ -15,6 +15,7 @@ tags:
     description: All about the sensors
   - name: Sensor readings
     description: All about the sensor readings
+  - name: DateTime
 paths:
   /api/v1/devices:
     get:
@@ -173,6 +174,10 @@ paths:
                   type: string
                 description:
                   type: string
+              required:
+                - uuid
+                - name
+                - description
             examples:
               example-1:
                 value:
@@ -300,6 +305,7 @@ paths:
             type: string
           in: query
           name: device_uuid
+          required: true
     post:
       summary: Create a sensor
       tags:
@@ -361,7 +367,7 @@ paths:
               properties:
                 device_id:
                   type: integer
-                sensort_type_id:
+                sensor_type_id:
                   type: integer
                 uuid:
                   type: string
@@ -369,6 +375,12 @@ paths:
                   type: string
                 description:
                   type: string
+              required:
+                - device_id
+                - sensor_type_id
+                - uuid
+                - name
+                - description
             examples:
               example-1:
                 value:
@@ -420,6 +432,8 @@ paths:
                                   type: integer
                         sensor_value:
                           type: integer
+                        date_time:
+                          type: string
               examples:
                 example-1:
                   value:
@@ -433,417 +447,8 @@ paths:
                             name: Temperature
                             unit: C
                             pow10multi: -2
-                        sensor_value: 1230
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 50
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 50
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 50
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 50
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 50
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2500
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 102300
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
                         sensor_value: 100
+                        date_time: '2020-10-31T07:46:00.000Z'
                       - sensor:
                           id: 1
                           uuid: 123-123-000-001
@@ -852,28 +457,9 @@ paths:
                             id: 1
                             name: Temperature
                             unit: C
-                            pow10multi: -2
-                        sensor_value: 2500
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
                             pow10multi: -2
                         sensor_value: 102300
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 100
+                        date_time: '2020-10-31T14:12:31.367Z'
                       - sensor:
                           id: 1
                           uuid: 123-123-000-001
@@ -882,878 +468,64 @@ paths:
                             id: 1
                             name: Temperature
                             unit: C
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 0
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 0
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 0
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 0
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 0
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 0
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 0
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 0
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 0
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 0
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2500
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 101300
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2500
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 101300
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2500
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 101300
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2500
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 101300
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2500
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 101300
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 97
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2650
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99956
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2650
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99955
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 97
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2650
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99954
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2650
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99953
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2650
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99953
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 97
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2649
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99953
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2649
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99953
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2648
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99953
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2646
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99952
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 97
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2645
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99952
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 98
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2687
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99231
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 95
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2687
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99232
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 95
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2686
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99230
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 96
-                      - sensor:
-                          id: 1
-                          uuid: 123-123-000-001
-                          name: Temperature Sensor
-                          sensor_type:
-                            id: 1
-                            name: Temperature
-                            unit: C
-                            pow10multi: -2
-                        sensor_value: 2684
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
-                            pow10multi: -2
-                        sensor_value: 99230
-                      - sensor:
-                          id: 3
-                          uuid: 123-123-000-003
-                          name: Battery Level Sensor
-                          sensor_type:
-                            id: 3
-                            name: Battery Level
-                            unit: '%'
-                            pow10multi: 0
-                        sensor_value: 95
-                      - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
-                          sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
                             pow10multi: -2
                         sensor_value: 102300
+                        date_time: '2020-10-31T14:13:32.557Z'
                       - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
+                          id: 1
+                          uuid: 123-123-000-001
+                          name: Temperature Sensor
                           sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
+                            id: 1
+                            name: Temperature
+                            unit: C
                             pow10multi: -2
                         sensor_value: 102300
+                        date_time: '2020-10-01T14:12:31.367Z'
                       - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
+                          id: 1
+                          uuid: 123-123-000-001
+                          name: Temperature Sensor
                           sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
+                            id: 1
+                            name: Temperature
+                            unit: C
                             pow10multi: -2
                         sensor_value: 102300
+                        date_time: '2020-10-01T14:12:31.367Z'
                       - sensor:
-                          id: 2
-                          uuid: 123-123-000-002
-                          name: Pressure Sensor
+                          id: 1
+                          uuid: 123-123-000-001
+                          name: Temperature Sensor
                           sensor_type:
-                            id: 2
-                            name: Pressure
-                            unit: Pa
+                            id: 1
+                            name: Temperature
+                            unit: C
                             pow10multi: -2
                         sensor_value: 102300
+                        date_time: '2020-10-01T14:12:31.367Z'
+                      - sensor:
+                          id: 1
+                          uuid: 123-123-000-001
+                          name: Temperature Sensor
+                          sensor_type:
+                            id: 1
+                            name: Temperature
+                            unit: C
+                            pow10multi: -2
+                        sensor_value: 102300
+                        date_time: '2020-10-01T14:12:31.367Z'
+                      - sensor:
+                          id: 1
+                          uuid: 123-123-000-001
+                          name: Temperature Sensor
+                          sensor_type:
+                            id: 1
+                            name: Temperature
+                            unit: C
+                            pow10multi: -2
+                        sensor_value: 102300
+                        date_time: '2020-10-01T14:12:31.367Z'
         '400':
           description: Error see message
           content:
@@ -1772,6 +544,7 @@ paths:
             type: string
           in: query
           name: sensor_uuid
+          required: true
     post:
       tags:
         - Sensor readings
@@ -1788,11 +561,18 @@ paths:
                   type: string
                 sensor_value:
                   type: integer
+                sensor_date_time:
+                  type: string
+              required:
+                - sensor_uuid
+                - sensor_value
+                - sensor_date_time
             examples:
               example-1:
                 value:
-                  sensor_uuid: 123-123-000-012
+                  sensor_uuid: 123-123-000-001
                   sensor_value: 102300
+                  sensor_date_time: '2020-10-01T14:12:31.367Z'
           application/xml:
             schema:
               type: object
@@ -1836,6 +616,29 @@ paths:
               examples:
                 example-1:
                   value: {}
+  /api/v1/date_time/current_date_time.json:
+    get:
+      summary: Get current date time
+      tags:
+        - DateTime
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  current_date_time:
+                    type: string
+                    minLength: 1
+              examples:
+                example-1:
+                  value:
+                    current_date_time: '2020-11-03T11:05:30.001Z'
+      operationId: get-api-v1-date_time-current_date_time.json
+      description: Get current date time
 servers:
   - url: 'http://localhost:3000'
     variables:
