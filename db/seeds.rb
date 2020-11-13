@@ -19,5 +19,5 @@ type_humidity = SensorType.create(:name => 'Humidity Level', :unit => '%', :pow1
 device = Device.create(:uuid => "123-123-000-000", :name => "MKR1010 BME280", :description => "Test Device ")
 sensor_temp = Sensor.create(:uuid => "123-123-000-001", :name => "Temperature Sensor", :description => "Temperature Sensor", :device => device, :sensor_type => type_temp)
 sensor_pres = Sensor.create(:uuid => "123-123-000-002", :name => "Pressure Sensor", :description => "Pressure Sensor", :device => device, :sensor_type => type_pres)
-sensor_humidity = Sensor.create(:uuid => "123-123-000-003", :name => "Humidity Level Sensor", :description => "Battery Level Sensor", :device => device, :sensor_type => type_humidity)
+sensor_humidity = Sensor.create(:uuid => "123-123-000-003", :name => "Humidity Level Sensor", :description => "Humidity Level Sensor", :device => device, :sensor_type => type_humidity)
 sensor_batt = Sensor.create(:uuid => "123-123-000-004", :name => "Battery Level Sensor", :description => "Battery Level Sensor", :device => device, :sensor_type => type_batt)
