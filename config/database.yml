@@ -4,7 +4,7 @@ default: &default
   pool: 10
   username: envsensing
   password: envsensing
-  host: 192.168.1.
+  host: 192.168.1.139
   port: 5432
 
 development:
