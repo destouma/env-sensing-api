@@ -2,20 +2,26 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 10
-  username: postgres
-  password:
-  host: db
-#  host: 192.168.1.139
-#  port: 5432
 
 development:
   <<: *default
   database: envsensing_development
+  username: envsensing
+  password: envsensing
+  host: localhost
+  port: 5432
 
 test:
   <<: *default
   database: envsensing_test
+  username: envsensing
+  password: envsensing
+  host: localhost
+  port: 5432
 
 production:
   <<: *default
   database: envsensing_production
+  username: postgres
+  password:
+  host: db
