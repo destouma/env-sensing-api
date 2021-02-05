@@ -23,5 +23,5 @@ production:
   <<: *default
   database: envsensing_production
   username: postgres
-  password:
+  password: postgres
   host: db
