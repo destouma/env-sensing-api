@@ -17,9 +17,14 @@ $ bundle install
 $ bundle exec rake db:create
 $ bundle exec rake db:migrate
 $ bundle exec rake db:seed
+$ rails s -b 0.0.0.0
 ```
 
+Assuming Postgres SQL is running on local host and listening at port 5432
 
+Assuming role **_envsensing_** with passwd **_envsensing_** exists
+              
+              
 Assuming the server is running on localhost, port 3000
 
 API doc: 
