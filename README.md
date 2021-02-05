@@ -20,12 +20,12 @@ $ bundle exec rake db:seed
 $ rails s -b 0.0.0.0
 ```
 
-Assuming Postgres SQL is running on local host and listening at port 5432
+Assuming Postgres SQL is running on local host and listening port 5432
 
 Assuming role **_envsensing_** with passwd **_envsensing_** exists
               
               
-Assuming the server is running on localhost, port 3000
+Assuming the server is running on localhost port 3000
 
 API doc: 
 <br> http://localhost:3000/api-docs/index.html
@@ -88,4 +88,4 @@ In the app container:
 # rake db:seed
 ```
 
-The nginx server will listen on port 80.
+The server will listen port 8080.
